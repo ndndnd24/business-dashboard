@@ -11,8 +11,8 @@ function App() {
           "https://releeve-frontend-test-75a5687f051f.herokuapp.com/token",
           {
             headers: {
-              username: "user",
-              password: "passWord123?!",
+              username: process.env.REACT_APP_USERNAME,
+              password: process.env.REACT_APP_PASSWORD,
             },
           }
         );
