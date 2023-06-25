@@ -21,10 +21,9 @@ function ChildrenChart(props) {
 
   return (
     <div className="component-container">
-      <div className="childrenchart-container">
+      <div className="childrenchart-container donut-chart-container">
         <Text color="#FFFFFF" fz="xl" className="chart-title-container">
           Do they have children?
-          {console.log(countElements(createChildrenArray(data)))}
         </Text>
         <SimpleDonut
           chartData={Object.values(countElements(createChildrenArray(data)))}

@@ -2,11 +2,11 @@ import React from "react";
 import { Text } from "@mantine/core";
 import SimpleDonut from "./SimpleDonut";
 
-function GenderChart(props) {
+function RatingChart(props) {
   const { data } = props;
 
-  function createGenderArray(inputData) {
-    return inputData.map((element) => element.gender);
+  function createRatingArray(inputData) {
+    return inputData.map((element) => element.rating);
   }
 
   function countElements(inputData) {
@@ -21,18 +21,18 @@ function GenderChart(props) {
 
   return (
     <div className="component-container">
-      <div className="genderchart-container donut-chart-container">
+      <div className="ratingchart-container donut-chart-container">
         <Text color="#FFFFFF" fz="xl" className="chart-title-container">
-          Gender Distribution
+          Ratings Distribution
         </Text>
         <SimpleDonut
-          chartData={Object.values(countElements(createGenderArray(data)))}
-          labelData={Object.keys(countElements(createGenderArray(data)))}
-          colorList={["#B3F2DD", "#E08D79"]}
+          chartData={Object.values(countElements(createRatingArray(data)))}
+          labelData={Object.keys(countElements(createRatingArray(data)))}
+          colorList={["#49416D", "#646D89", "#7E9AA5", "#99C6C1", "#B3F2DD"]}
         />
       </div>
     </div>
   );
 }
 
-export default GenderChart;
+export default RatingChart;

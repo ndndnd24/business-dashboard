@@ -6,6 +6,8 @@ import TableComponent from "./components/Table";
 import AgeChart from "./components/AgeChart";
 import GenderChart from "./components/GenderChart";
 import ChildrenChart from "./components/ChildrenChart";
+import ReligiousnessChart from "./components/ReligiousnessChart";
+import RatingChart from "./components/RatingChart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -74,6 +76,10 @@ function App() {
             <div className="donut-charts-container">
               <GenderChart data={data} isLoaded={isLoaded} />
               <ChildrenChart data={data} isLoaded={isLoaded} />
+            </div>
+            <div className="donut-charts-container">
+              <ReligiousnessChart data={data} isLoaded={isLoaded} />
+              <RatingChart data={data} isLoaded={isLoaded} />
             </div>
           </div>
         )
