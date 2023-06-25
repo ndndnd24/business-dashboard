@@ -28,7 +28,7 @@ function RatingChart(props) {
         <RadialBarChart
           chartData={Object.values(countElements(createRatingArray(data)))}
           labelData={Object.keys(countElements(createRatingArray(data)))}
-          colorList={["#49416D", "#646D89", "#7E9AA5", "#99C6C1", "#B3F2DD"]}
+          colorList={["#E08D79", "#D5A692", "#CAC0AB", "#BED9C4", "#B3F2DD"]}
         />
       </div>
     </div>

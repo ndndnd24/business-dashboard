@@ -4,7 +4,7 @@ import ReactApexChart from "react-apexcharts";
 function RadialBarChart(props) {
   const { chartData, labelData, colorList } = props;
 
-  function convertToPercentages(inputData) {
+  function convertToPercentagesForTheChartToShow(inputData) {
     if (inputData.length === 0) {
       return [];
     }
@@ -15,7 +15,20 @@ function RadialBarChart(props) {
     return percentages;
   }
 
-  const series = convertToPercentages(chartData);
+  function convertToPercentagesForTheLabels(inputData) {
+    if (inputData.length === 0) {
+      return [];
+    }
+  
+    const sum = inputData.reduce((acc, num) => acc + num, 0);
+  
+    const percentages = inputData.map((number) => (number / sum) * 100);
+  
+    return percentages;
+  }
+
+  const percentages = convertToPercentagesForTheLabels(chartData)
+  const series = convertToPercentagesForTheChartToShow(chartData);
   const options = {
     chart: {
       height: 390,
@@ -49,7 +62,7 @@ function RadialBarChart(props) {
       floating: true,
       fontSize: "12px",
       position: "left",
-      offsetX: 160,
+      offsetX: 100,
       offsetY: -3,
       labels: {
         useSeriesColors: true,
@@ -58,7 +71,7 @@ function RadialBarChart(props) {
         size: 0,
       },
       formatter: function (seriesName, opts) {
-        return seriesName + ":  " + chartData[opts.seriesIndex];
+        return seriesName + ":  " + chartData[opts.seriesIndex] + " (" + Math.round(percentages[opts.seriesIndex]) + "%)";
       },
       itemMargin: {
         vertical: 3,
