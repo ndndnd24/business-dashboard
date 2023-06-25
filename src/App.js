@@ -1,8 +1,11 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Loader } from "@mantine/core";
 import TableComponent from "./components/Table";
 import AgeChart from "./components/AgeChart";
+import GenderChart from "./components/GenderChart";
+import ChildrenChart from "./components/ChildrenChart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -57,9 +60,24 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <TableComponent data={data} isLoaded={isLoaded}/>
-      <AgeChart data={data} isLoaded={isLoaded}/>
+    <div>
+      {!isLoaded ? (
+        <div className="loader-container">
+          <Loader variant="bars" color="#E08D79" />
+          <p>Endpoint loading...</p>
+        </div>
+      ) : (
+        data && (
+          <div className="App">
+            <TableComponent data={data} isLoaded={isLoaded} />
+            <AgeChart data={data} isLoaded={isLoaded} />
+            <div className="donut-charts-container">
+              <GenderChart data={data} isLoaded={isLoaded} />
+              <ChildrenChart data={data} isLoaded={isLoaded} />
+            </div>
+          </div>
+        )
+      )}
     </div>
   );
 }

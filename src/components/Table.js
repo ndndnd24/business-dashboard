@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Loader, Table, Pagination } from "@mantine/core";
+import { Table, Pagination } from "@mantine/core";
 
 function TableComponent(props) {
   const [sortedColumn, setSortedColumn] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
-  const { data, isLoaded } = props;
-
-  
+  const { data } = props;
 
   const handleSort = (column) => {
     if (column === sortedColumn) {
@@ -57,90 +55,76 @@ function TableComponent(props) {
 
   return (
     <div className="App">
-      {!isLoaded ? (
-        <div className="loader-container">
-          <Loader variant="bars" color="#E08D79" />
-          <p>Endpoint loading...</p>
-        </div>
-      ) : (
-        data && (
-          <div className="table-container">
-            <Table
-              highlightOnHover
-              withBorder
-              verticalSpacing="md"
-              fontSize="lg"
-            >
-              <thead>
-                <tr>
-                  <th onClick={() => handleSort("age")}>
-                    Age{" "}
-                    {sortedColumn === "age" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("gender")}>
-                    Gender{" "}
-                    {sortedColumn === "gender" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("affairs")}>
-                    Affairs{" "}
-                    {sortedColumn === "affairs" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("yearsmarried")}>
-                    Years Married{" "}
-                    {sortedColumn === "yearsmarried" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("children")}>
-                    Children{" "}
-                    {sortedColumn === "children" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("religiousness")}>
-                    Religiousness{" "}
-                    {sortedColumn === "religiousness" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("education")}>
-                    Education{" "}
-                    {sortedColumn === "education" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("occupation")}>
-                    Occupation{" "}
-                    {sortedColumn === "occupation" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                  <th onClick={() => handleSort("rating")}>
-                    Rating{" "}
-                    {sortedColumn === "rating" && (
-                      <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
-                    )}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{rows}</tbody>
-            </Table>
-            <Pagination
-              total={totalPages}
-              page={currentPage}
-              onChange={handlePageChange}
-              size="lg"
-              className="pagination-container"
-            />
-          </div>
-        )
-      )}
+      <div className="table-container">
+        <Table highlightOnHover withBorder verticalSpacing="md" fontSize="lg">
+          <thead>
+            <tr>
+              <th onClick={() => handleSort("age")}>
+                Age{" "}
+                {sortedColumn === "age" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("gender")}>
+                Gender{" "}
+                {sortedColumn === "gender" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("affairs")}>
+                Affairs{" "}
+                {sortedColumn === "affairs" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("yearsmarried")}>
+                Years Married{" "}
+                {sortedColumn === "yearsmarried" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("children")}>
+                Children{" "}
+                {sortedColumn === "children" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("religiousness")}>
+                Religiousness{" "}
+                {sortedColumn === "religiousness" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("education")}>
+                Education{" "}
+                {sortedColumn === "education" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("occupation")}>
+                Occupation{" "}
+                {sortedColumn === "occupation" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+              <th onClick={() => handleSort("rating")}>
+                Rating{" "}
+                {sortedColumn === "rating" && (
+                  <span>({sortDirection === "asc" ? "↑" : "↓"})</span>
+                )}
+              </th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </Table>
+        <Pagination
+          total={totalPages}
+          page={currentPage}
+          onChange={handlePageChange}
+          size="lg"
+          className="pagination-container"
+        />
+      </div>
     </div>
   );
 }

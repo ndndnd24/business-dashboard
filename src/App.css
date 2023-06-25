@@ -1,6 +1,13 @@
 .App {
+  /* text-align: center;
+  background-color: #49416D;
+  overflow: hidden; */
+}
+
+body {
   text-align: center;
   background-color: #49416D;
+  overflow-x: hidden;
 }
 
 .loader-container {
@@ -23,8 +30,7 @@
   padding: 0 150px;
 }
 
-.table-container > table {
-  border-radius: 5px;
+.table-container>table {
   margin-bottom: 20px;
   border: none;
 }
@@ -68,4 +74,31 @@
 
 .agechart-container {
   padding: 0 150px;
+}
+
+.donut-charts-container {
+  display: flex;
+  margin: 100px 0;
+}
+
+.apexcharts-legend-text {
+  text-transform: uppercase;
+}
+
+.donut-charts-container .component-container {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+.genderchart-container,
+.childrenchart-container {
+  width: 70%;
+  border-radius: 10px;
+  background-color: #A882DD;
+  padding: 25px;
+}
+
+.donut-charts-container .chart-title-container {
+  margin-bottom: 25px;
 }

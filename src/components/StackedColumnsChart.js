@@ -56,7 +56,7 @@ function StackedColumnsChart(props) {
             style: {
               fontSize: "13px",
               fontWeight: 900,
-              color: "#E0EFDE"
+              color: "#E0EFDE",
             },
           },
         },
@@ -66,7 +66,7 @@ function StackedColumnsChart(props) {
       categories: xaxisCategories,
       labels: {
         style: {
-          color: "#E0EFDE",
+          colors: ["#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE"],
         },
       },
     },
@@ -81,7 +81,7 @@ function StackedColumnsChart(props) {
       position: "right",
       offsetY: 40,
       labels: {
-        color: "#E0EFDE",
+        colors: ["#E0EFDE"],
       },
     },
     fill: {
