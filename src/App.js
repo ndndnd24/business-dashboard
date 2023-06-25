@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { Loader } from "@mantine/core";
+import { Loader, Table } from "@mantine/core";
 import axios from "axios";
 
 function App() {
@@ -65,7 +65,27 @@ function App() {
           <p>Endpoint loading...</p>
         </div>
       ) : (
-        data && <div className="test-loaded">endpoint loaded</div>
+        data && (
+        // <div className="test-loaded">endpoint loaded</div>
+        <div className="table-container">
+            <Table highlightOnHover>
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Affairs</th>
+                  <th>Years Married</th>
+                  <th>Children</th>
+                  <th>Religiousness</th>
+                  <th>Education</th>
+                  <th>Occupation</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </Table>
+          </div>
+        )
       )}
     </div>
   );

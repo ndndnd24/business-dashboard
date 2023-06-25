@@ -13,10 +13,12 @@
   color: #E0EFDE;
 }
 
-.test-loaded {
+.test-loaded,
+.table-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #E0EFDE;
+  padding: 150px;
 }
