@@ -9,6 +9,7 @@ import ChildrenChart from "./components/ChildrenChart";
 import ReligiousnessChart from "./components/ReligiousnessChart";
 import RatingChart from "./components/RatingChart";
 import AffairsChart from "./components/AffairsChart";
+import MarriageChart from "./components/MarriageChart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -72,17 +73,18 @@ function App() {
       ) : (
         data && (
           <div className="App">
-            <TableComponent data={data} isLoaded={isLoaded} />
-            <AgeChart data={data} isLoaded={isLoaded} />
+            <TableComponent data={data} />
+            <AgeChart data={data} />
             <div className="donut-charts-container">
-              <GenderChart data={data} isLoaded={isLoaded} />
-              <ChildrenChart data={data} isLoaded={isLoaded} />
+              <GenderChart data={data} />
+              <ChildrenChart data={data} />
             </div>
-            <AffairsChart data={data} isLoaded={isLoaded} />
+            <AffairsChart data={data} />
             <div className="donut-charts-container">
-              <ReligiousnessChart data={data} isLoaded={isLoaded} />
-              <RatingChart data={data} isLoaded={isLoaded} />
+              <ReligiousnessChart data={data} />
+              <RatingChart data={data} />
             </div>
+            <MarriageChart data={data} />
           </div>
         )
       )}

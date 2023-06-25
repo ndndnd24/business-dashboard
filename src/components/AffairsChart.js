@@ -24,16 +24,6 @@ function AffairsChart(props) {
     return counts;
   }
 
-//   function moveLastItemToFirst(array) {
-//     if (array.length <= 1) {
-//       return array;
-//     }
-
-//     const lastItem = array.pop();
-//     array.unshift(lastItem);
-//     return array;
-//   }
-
   const xaxisMale = countElements(createAffairsArray(data, "male"));
   const xaxisFemale = countElements(createAffairsArray(data, "female"));
 
@@ -49,9 +39,6 @@ function AffairsChart(props) {
           firstSeriesData={Object.values(xaxisFemale)}
           secondSeriesData={Object.values(xaxisMale)}
           xaxisCategories={Object.keys(xaxisFemale)}
-        //   firstSeriesData={moveLastItemToFirst(Object.values(xaxisFemale))}
-        //   secondSeriesData={moveLastItemToFirst(Object.values(xaxisMale))}
-        //   xaxisCategories={moveLastItemToFirst(Object.keys(xaxisFemale))}
         />
       </div>
     </div>

@@ -57,7 +57,7 @@ function BarWithNegativeValuesChart(props) {
       min: -100,
       max: 100,
       title: {
-        text: 'Age',
+        text: 'Age (years)',
         style: {
             color: "#E0EFDE"
         }

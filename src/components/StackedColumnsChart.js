@@ -64,6 +64,12 @@ function StackedColumnsChart(props) {
     },
     xaxis: {
       categories: xaxisCategories,
+      title: {
+        text: "Number of Affairs",
+        style: {
+            color: "#E0EFDE"
+        }
+      },
       labels: {
         style: {
           colors: ["#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE", "#E0EFDE"],
