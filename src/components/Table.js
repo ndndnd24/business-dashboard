@@ -67,7 +67,6 @@ function TableComponent(props) {
           <div className="table-container">
             <Table
               highlightOnHover
-              stripped
               withBorder
               verticalSpacing="md"
               fontSize="lg"
@@ -136,9 +135,7 @@ function TableComponent(props) {
               total={totalPages}
               page={currentPage}
               onChange={handlePageChange}
-              withBoundaryNumbers
               size="lg"
-              rightSectionLimit={1}
               className="pagination-container"
             />
           </div>

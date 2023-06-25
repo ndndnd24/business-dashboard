@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TableComponent from "./components/Table";
+import AgeChart from "./components/AgeChart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -58,6 +59,7 @@ function App() {
   return (
     <div className="App">
       <TableComponent data={data} isLoaded={isLoaded}/>
+      <AgeChart data={data} isLoaded={isLoaded}/>
     </div>
   );
 }

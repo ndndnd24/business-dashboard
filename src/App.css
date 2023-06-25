@@ -65,3 +65,7 @@
   background-color: #E08D79 !important;
   color: #E0EFDE;
 }
+
+.agechart-container {
+  padding: 0 150px;
+}
