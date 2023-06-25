@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import { Loader } from "@mantine/core";
 import axios from "axios";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         );
         console.log(dataResponse.data.data.getData);
         setData(dataResponse.data.data.getData);
-        setLoaded(false);
+        setLoaded(true);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -60,16 +61,11 @@ function App() {
     <div className="App">
       {!isLoaded ? (
         <div className="loader-container">
-          {/* <Loader variant="bars" color="#47d7ff" /> */}
-            <img src={logo} className="react-logo" alt="logo" />
-            <p>
-              Endpoint loading...
-            </p>
+          <Loader variant="bars" color="#E08D79" />
+          <p>Endpoint loading...</p>
         </div>
       ) : (
-        data && (
-          <div>endpoint loaded</div>
-        )
+        data && <div className="test-loaded">endpoint loaded</div>
       )}
     </div>
   );

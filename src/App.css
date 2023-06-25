@@ -3,17 +3,6 @@
   background-color: #49416D;
 }
 
-.react-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .react-logo {
-    animation: react-logo-spin infinite 20s linear;
-  }
-}
-
 .loader-container {
   min-height: 100vh;
   display: flex;
@@ -24,11 +13,10 @@
   color: #E0EFDE;
 }
 
-@keyframes react-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.test-loaded {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E0EFDE;
 }
