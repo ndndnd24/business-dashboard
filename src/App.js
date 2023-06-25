@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Loader } from "@mantine/core";
+import { Loader, Text } from "@mantine/core";
 import TableComponent from "./components/Table";
 import AgeChart from "./components/AgeChart";
 import GenderChart from "./components/GenderChart";
@@ -18,24 +18,19 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const tokenResponse = await axios.get(
-          "https://releeve-frontend-test-75a5687f051f.herokuapp.com/token",
-          {
-            headers: {
-              username: process.env.REACT_APP_USERNAME,
-              password: process.env.REACT_APP_PASSWORD,
-            },
-          }
-        );
+        const tokenResponse = await axios.get(process.env.REACT_APP_TOKEN, {
+          headers: {
+            username: process.env.REACT_APP_USERNAME,
+            password: process.env.REACT_APP_PASSWORD,
+          },
+        });
         const token = tokenResponse.data.token;
-        const dataResponse = await axios.get(
-          "https://releeve-frontend-test-75a5687f051f.herokuapp.com/affairs",
-          {
-            headers: {
-              token: token,
-            },
-            params: {
-              query: `
+        const dataResponse = await axios.get(process.env.REACT_APP_AFFAIRS, {
+          headers: {
+            token: token,
+          },
+          params: {
+            query: `
                 query {
                   getData {
                     age
@@ -50,9 +45,8 @@ function App() {
                   }
                 }
               `,
-            },
-          }
-        );
+          },
+        });
         setData(dataResponse.data.data.getData);
         setLoaded(true);
       } catch (error) {
@@ -72,7 +66,8 @@ function App() {
         </div>
       ) : (
         data && (
-          <div className="App">
+          <div className="app-container">
+            <Text className="app-title-container">Affairs Dashboard</Text>
             <TableComponent data={data} />
             <AgeChart data={data} />
             <div className="donut-charts-container">
