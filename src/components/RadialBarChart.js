@@ -94,7 +94,6 @@ function RadialBarChart(props) {
       options={options}
       series={series}
       type="radialBar"
-      //   height={475}
     />
   );
 }

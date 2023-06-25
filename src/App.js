@@ -8,6 +8,7 @@ import GenderChart from "./components/GenderChart";
 import ChildrenChart from "./components/ChildrenChart";
 import ReligiousnessChart from "./components/ReligiousnessChart";
 import RatingChart from "./components/RatingChart";
+import AffairsChart from "./components/AffairsChart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -77,6 +78,7 @@ function App() {
               <GenderChart data={data} isLoaded={isLoaded} />
               <ChildrenChart data={data} isLoaded={isLoaded} />
             </div>
+            <AffairsChart data={data} isLoaded={isLoaded} />
             <div className="donut-charts-container">
               <ReligiousnessChart data={data} isLoaded={isLoaded} />
               <RatingChart data={data} isLoaded={isLoaded} />
