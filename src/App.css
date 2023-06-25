@@ -21,3 +21,26 @@
   color: #E0EFDE;
   padding: 150px;
 }
+
+.table-container > table {
+  border-color: #E08D79;
+  border-radius: 5px;
+}
+
+.table-container th,
+.table-container tr {
+  color: #49416D !important;
+}
+
+.table-container tr {
+  background-color: #E0EFDE;
+}
+
+.table-container tr:nth-of-type(2n),
+.table-container thead tr {
+  background-color: #B3F2DD !important;
+}
+
+.table-container tr:hover {
+  background-color: #E08D79 !important;
+}

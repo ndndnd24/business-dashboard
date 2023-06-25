@@ -79,7 +79,7 @@ function App() {
       ) : (
         data && (
         <div className="table-container">
-            <Table highlightOnHover>
+            <Table highlightOnHover stripped withBorder verticalSpacing="md" fontSize="lg">
               <thead>
                 <tr>
                   <th>Age</th>
