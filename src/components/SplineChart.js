@@ -75,7 +75,7 @@ function SplineChart(props) {
       },
     },
   };
-  return <ReactApexChart options={options} series={series} type="area" />;
+  return <ReactApexChart options={options} series={series} type="line" />;
 }
 
 export default SplineChart;
