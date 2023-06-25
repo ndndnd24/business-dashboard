@@ -1,9 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,7 +19,33 @@ function App() {
           }
         );
         const token = tokenResponse.data.token;
-        console.log(token);
+        const dataResponse = await axios.get(
+          'https://releeve-frontend-test-75a5687f051f.herokuapp.com/affairs',
+          {
+            headers: {
+              token: token
+            },
+            params: {
+              query: `
+                query {
+                  getData {
+                    age
+                    gender
+                    affairs
+                    yearsmarried
+                    children
+                    religiousness
+                    education
+                    occupation
+                    rating
+                  }
+                }
+              `
+            }
+          }
+        );
+        console.log(dataResponse.data.data.getData);
+        setData(dataResponse.data.data.getData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
