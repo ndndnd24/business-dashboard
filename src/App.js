@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import { Loader, Table } from "@mantine/core";
@@ -46,7 +45,6 @@ function App() {
             },
           }
         );
-        console.log(dataResponse.data.data.getData);
         setData(dataResponse.data.data.getData);
         setLoaded(true);
       } catch (error) {
@@ -57,6 +55,20 @@ function App() {
     fetchData();
   }, []);
 
+  const rows = data.map((element, index) => (
+    <tr key={"table-item-" + index}>
+      <td>{element.age}</td>
+      <td>{element.gender}</td>
+      <td>{element.affairs}</td>
+      <td>{element.yearsmarried}</td>
+      <td>{element.children}</td>
+      <td>{element.religiousness}</td>
+      <td>{element.education}</td>
+      <td>{element.occupation}</td>
+      <td>{element.rating}</td>
+    </tr>
+  ));
+
   return (
     <div className="App">
       {!isLoaded ? (
@@ -66,7 +78,6 @@ function App() {
         </div>
       ) : (
         data && (
-        // <div className="test-loaded">endpoint loaded</div>
         <div className="table-container">
             <Table highlightOnHover>
               <thead>
@@ -82,7 +93,7 @@ function App() {
                   <th>Rating</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>{rows}</tbody>
             </Table>
           </div>
         )
