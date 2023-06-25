@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "@mantine/core";
-import SimpleDonut from "./SimpleDonut";
+import RadialBarChart from "./RadialBarChart";
 
 function RatingChart(props) {
   const { data } = props;
@@ -25,7 +25,7 @@ function RatingChart(props) {
         <Text color="#FFFFFF" fz="xl" className="chart-title-container">
           Ratings Distribution
         </Text>
-        <SimpleDonut
+        <RadialBarChart
           chartData={Object.values(countElements(createRatingArray(data)))}
           labelData={Object.keys(countElements(createRatingArray(data)))}
           colorList={["#49416D", "#646D89", "#7E9AA5", "#99C6C1", "#B3F2DD"]}
