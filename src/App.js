@@ -5,6 +5,7 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState([]);
+  const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,10 +21,10 @@ function App() {
         );
         const token = tokenResponse.data.token;
         const dataResponse = await axios.get(
-          'https://releeve-frontend-test-75a5687f051f.herokuapp.com/affairs',
+          "https://releeve-frontend-test-75a5687f051f.herokuapp.com/affairs",
           {
             headers: {
-              token: token
+              token: token,
             },
             params: {
               query: `
@@ -40,12 +41,13 @@ function App() {
                     rating
                   }
                 }
-              `
-            }
+              `,
+            },
           }
         );
         console.log(dataResponse.data.data.getData);
         setData(dataResponse.data.data.getData);
+        setLoaded(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -56,20 +58,19 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isLoaded ? (
+        <div className="loader-container">
+          {/* <Loader variant="bars" color="#47d7ff" /> */}
+            <img src={logo} className="react-logo" alt="logo" />
+            <p>
+              Endpoint loading...
+            </p>
+        </div>
+      ) : (
+        data && (
+          <div>endpoint loaded</div>
+        )
+      )}
     </div>
   );
 }
