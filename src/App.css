@@ -16,15 +16,17 @@
 .table-container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #E0EFDE;
-  padding: 150px;
+  padding: 0 150px;
 }
 
 .table-container > table {
-  border-color: #E08D79;
   border-radius: 5px;
+  margin-bottom: 20px;
+  border: none;
 }
 
 .table-container th,
@@ -36,6 +38,10 @@
   background-color: #E0EFDE;
 }
 
+.table-container thead th {
+  text-align: center !important;
+}
+
 .table-container tr:nth-of-type(2n),
 .table-container thead tr {
   background-color: #B3F2DD !important;
@@ -43,4 +49,19 @@
 
 .table-container tr:hover {
   background-color: #E08D79 !important;
+}
+
+.pagination-container button {
+  background-color: #E0EFDE;
+  border-color: transparent;
+  color: #49416D;
+}
+
+.pagination-container button:hover {
+  background-color: #E08D79 !important;
+}
+
+.pagination-container button[data-active] {
+  background-color: #E08D79 !important;
+  color: #E0EFDE;
 }
