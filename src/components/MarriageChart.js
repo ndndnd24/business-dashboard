@@ -44,7 +44,6 @@ function MarriageChart(props) {
       <div className="mariagechart-container">
         <Text color="#FFFFFF" fz="xl" className="chart-title-container">
           Average Marriage Time by Age
-          {console.log(moveLastItemToFirst(Object.values(xaxisFemale)))}
         </Text>
         <SplineChart
           firstSeriesName={"FEMALE"}

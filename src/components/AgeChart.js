@@ -1,6 +1,5 @@
 import React from "react";
 import { Text } from "@mantine/core";
-import StackedColumnsChart from "./StackedColumnsChart";
 import BarWithNegativeValuesChart from "./BarWithNegativeValuesChart";
 
 function AgeChart(props) {
@@ -51,13 +50,6 @@ function AgeChart(props) {
           secondSeriesData={moveLastItemToFirst(Object.values(xaxisMale))}
           xaxisCategories={moveLastItemToFirst(Object.keys(xaxisFemale))}
         />
-        {/* <StackedColumnsChart
-          firstSeriesName={"FEMALE"}
-          secondSeriesName={"MALE"}
-          firstSeriesData={moveLastItemToFirst(Object.values(xaxisFemale))}
-          secondSeriesData={moveLastItemToFirst(Object.values(xaxisMale))}
-          xaxisCategories={moveLastItemToFirst(Object.keys(xaxisFemale))}
-        /> */}
       </div>
     </div>
   );
