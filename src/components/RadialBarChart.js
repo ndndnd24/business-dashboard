@@ -19,15 +19,15 @@ function RadialBarChart(props) {
     if (inputData.length === 0) {
       return [];
     }
-  
+
     const sum = inputData.reduce((acc, num) => acc + num, 0);
-  
+
     const percentages = inputData.map((number) => (number / sum) * 100);
-  
+
     return percentages;
   }
 
-  const percentages = convertToPercentagesForTheLabels(chartData)
+  const percentages = convertToPercentagesForTheLabels(chartData);
   const series = convertToPercentagesForTheChartToShow(chartData);
   const options = {
     chart: {
@@ -71,7 +71,14 @@ function RadialBarChart(props) {
         size: 0,
       },
       formatter: function (seriesName, opts) {
-        return seriesName + ":  " + chartData[opts.seriesIndex] + " (" + Math.round(percentages[opts.seriesIndex]) + "%)";
+        return (
+          seriesName +
+          ":  " +
+          chartData[opts.seriesIndex] +
+          " (" +
+          Math.round(percentages[opts.seriesIndex]) +
+          "%)"
+        );
       },
       itemMargin: {
         vertical: 3,
@@ -79,23 +86,20 @@ function RadialBarChart(props) {
     },
     responsive: [
       {
-        breakpoint: 480,
+        breakpoint: 768,
         options: {
           legend: {
-            show: false,
+            show: true,
+            fontSize: "10px",
+            offsetX: 30,
+            offsetY: -15,
           },
         },
       },
     ],
   };
 
-  return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="radialBar"
-    />
-  );
+  return <ReactApexChart options={options} series={series} type="radialBar" />;
 }
 
 export default RadialBarChart;
